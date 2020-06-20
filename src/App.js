@@ -1,15 +1,13 @@
 import React from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './css/style.css';
 import './App.css';
-import MainMenu from './components/MainMenu';
-import MobileMenu from './components/MobileMenu';
+import Nav from './components/Nav';
 
 
 const App = () => {
   return (
-    <>
-    <MobileMenu />
-    <MainMenu />
-    </>
+    <Nav/>
   )
 }
 

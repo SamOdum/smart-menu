@@ -2,7 +2,8 @@ import React from 'react'
 
 const MobileMenu = () => {
     return (
-        		<div id="mobile-menu">
+        		<div id="mobile-menu" style={{left: '0', width:' 250px', height: '7377px', display: 'block', overflow: 'hidden',}}>
+		
 			<div id="mobile-search">
 				<form>
 					<div classname="input-group">
