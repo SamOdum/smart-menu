@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import { MobileMenuContext } from '../contexts/MobileMenuContext';
+
+const navDisplay = {
+  show: {
+    left: '0',
+    width: ' 250px',
+    height: '7377px',
+    display: 'block',
+    overflow: 'hidden',
+  },
+  hide: {
+    left: '-250px',
+    width: ' 250px',
+    height: '7377px',
+    display: 'none',
+    overflow: 'hidden',
+  },
+};
 
 const MobileMenu = () => {
+  // Fetch mobile menu state from mobile menu context
+  const [mobileMenuIsOpen] = useContext(MobileMenuContext);
+
+  // Manage display of mobile navbar based on mobileMenuIsOpen state
+  const menuStyle = mobileMenuIsOpen ? navDisplay.show : navDisplay.hide;
+
+  useEffect(() => {
+    return mobileMenuIsOpen
+      ? document.body.classList.add('mmPushBody')
+      : document.body.classList.remove('mmPushBody');
+  }, [mobileMenuIsOpen]);
+
   return (
-    <div
-      id="mobile-menu"
-      style={{
-        left: '0',
-        width: ' 250px',
-        height: '7377px',
-        display: 'block',
-        overflow: 'hidden',
-      }}
-    >
+    <div id="mobile-menu" style={menuStyle}>
       <div id="mobile-search">
         <form>
           <div className="input-group">
@@ -27,12 +48,16 @@ const MobileMenu = () => {
           </div>
         </form>
       </div>
-      <ul>
+      <ul className="mobile-menu">
         <li>
+          <span
+            className="expand fa fa-minus open"
+            style={{ paddingBottom: '12px', paddingTop: '12px' }}
+          />
           <a href="index.html" className="home1">
             Home
           </a>
-          <ul>
+          <ul style={{ display: 'block' }}>
             <li>
               <a href="index.html">
                 <span>Home Version 1</span>
