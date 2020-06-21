@@ -3801,8 +3801,10 @@ html {
   position: absolute;
   padding: 0 10px;
   color: #333e48;
+  background-color: inherit;
   margin-left: 100px;
   font-size: 14px;
+  border: none;
 }
 .mobile-menu .expand:before {
   content: '\f067';

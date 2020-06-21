@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { MobileMenuContext } from '../contexts/MobileMenuContext';
 
 const navDisplay = {
@@ -31,6 +31,22 @@ const MobileMenu = () => {
       : document.body.classList.remove('mmPushBody');
   }, [mobileMenuIsOpen]);
 
+  // Set state for secondary nav show/hide trigger
+  const [mobileSecMenuOpen, setMobileSecMenuOpen] = useState({
+    firstOne: false,
+    secondOne: false,
+    secondOneOne: false,
+    thirdOne: false,
+    fourthOne: false,
+  });
+
+  const handleMobileSecMenuOpen = (e) => {
+    setMobileSecMenuOpen({
+      ...mobileSecMenuOpen,
+      [e]: !mobileSecMenuOpen[e], // find a way to acquire who dispatched the function
+    });
+  };
+
   return (
     <div id="mobile-menu" style={menuStyle}>
       <div id="mobile-search">
@@ -49,15 +65,28 @@ const MobileMenu = () => {
         </form>
       </div>
       <ul className="mobile-menu">
-        <li>
-          <span
-            className="expand fa fa-minus open"
+        <li data-id="firstOne">
+          <button
+            type="button"
+            aria-label="expand"
+            onClick={() => handleMobileSecMenuOpen('firstOne')}
+            className={
+              mobileSecMenuOpen.firstOne
+                ? 'expand fa fa-minus open'
+                : 'expand fa fa-plus'
+            }
             style={{ paddingBottom: '12px', paddingTop: '12px' }}
           />
           <a href="index.html" className="home1">
             Home
           </a>
-          <ul style={{ display: 'block' }}>
+          <ul
+            style={
+              mobileSecMenuOpen.firstOne
+                ? { display: 'block' }
+                : { display: 'none' }
+            }
+          >
             <li>
               <a href="index.html">
                 <span>Home Version 1</span>
@@ -75,14 +104,48 @@ const MobileMenu = () => {
             </li>
           </ul>
         </li>
-        <li>
+        <li data-id="secondOne">
+          <button
+            type="button"
+            aria-label="expand"
+            onClick={() => handleMobileSecMenuOpen('secondOne')}
+            className={
+              mobileSecMenuOpen.secondOne
+                ? 'expand fa fa-minus open'
+                : 'expand fa fa-plus'
+            }
+            style={{ paddingBottom: '12px', paddingTop: '12px' }}
+          />
           <a href="shop_grid.html">Pages</a>
-          <ul>
-            <li>
+          <ul
+            style={
+              mobileSecMenuOpen.secondOne
+                ? { display: 'block' }
+                : { display: 'none' }
+            }
+          >
+            <li data-id="secondOneOne">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('secondOneOne')}
+                className={
+                  mobileSecMenuOpen.secondOneOne
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#" className="">
                 Shop Pages
               </a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.secondOneOne
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html"> Shop grid </a>
                 </li>
@@ -104,9 +167,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="secondOneTwo">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('secondOneTwo')}
+                className={
+                  mobileSecMenuOpen.secondOneTwo
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Ecommerce Pages </a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.secondOneTwo
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="wishlist.html"> Wishlists </a>
                 </li>
