@@ -173,7 +173,8 @@ const MainMenu = () => {
                                     <div className="add-desc">
                                       <h3>Save up to</h3>
                                       <div className="price-sale">
-                                        {' 70<sup>%</sup>'}
+                                        70
+                                        <sup>%</sup>
                                         <sub>off</sub>
                                       </div>
                                       <a href="#234bcde1234abc">Shopping Now</a>

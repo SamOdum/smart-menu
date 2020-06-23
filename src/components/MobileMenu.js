@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useSpring, animated } from 'react-spring';
 import { MobileMenuContext } from '../contexts/MobileMenuContext';
 
 const navDisplay = {
@@ -22,6 +23,7 @@ const MobileMenu = () => {
   // Fetch mobile menu state from mobile menu context
   const [mobileMenuIsOpen] = useContext(MobileMenuContext);
 
+  const props = useSpring({ opacity: 1, from: { opacity: 0 } });
   // Manage display of mobile navbar based on mobileMenuIsOpen state
   const menuStyle = mobileMenuIsOpen ? navDisplay.show : navDisplay.hide;
 
@@ -204,9 +206,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="secondOneThree">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('secondOneThree')}
+                className={
+                  mobileSecMenuOpen.secondOneTwo
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Static Pages </a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.secondOneThree
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="account_page.html"> Create Account Page </a>
                 </li>
@@ -224,9 +243,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="secondOneFour">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('secondOneFour')}
+                className={
+                  mobileSecMenuOpen.secondOneFour
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Product Categories </a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.secondOneFour
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="cat-3-col.html"> 3 Column Sidebar </a>
                 </li>
@@ -241,9 +277,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="secondOneFive">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('secondOneFive')}
+                className={
+                  mobileSecMenuOpen.secondOneFive
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Single Product Pages </a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.secondOneFive
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="single_product.html"> single product </a>
                 </li>
@@ -264,9 +317,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="secondOneSix">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('secondOneSix')}
+                className={
+                  mobileSecMenuOpen.secondOneSix
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#"> Blog Pages </a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.secondOneSix
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="blog_right_sidebar.html">Blog – Right sidebar </a>
                 </li>
@@ -289,9 +359,26 @@ const MobileMenu = () => {
         <li>
           <a href="about_us.html">About us</a>
         </li>
-        <li>
+        <li data-id="ThirdOne">
+          <button
+            type="button"
+            aria-label="expand"
+            onClick={() => handleMobileSecMenuOpen('ThirdOne')}
+            className={
+              mobileSecMenuOpen.ThirdOne
+                ? 'expand fa fa-minus open'
+                : 'expand fa fa-plus'
+            }
+            style={{ paddingBottom: '12px', paddingTop: '12px' }}
+          />
           <a href="blog.html">Blog</a>
-          <ul>
+          <ul
+            style={
+              mobileSecMenuOpen.ThirdOne
+                ? { display: 'block' }
+                : { display: 'none' }
+            }
+          >
             <li>
               <a href="blog_right_sidebar.html">Blog – Right sidebar </a>
             </li>
@@ -306,14 +393,48 @@ const MobileMenu = () => {
             </li>
           </ul>
         </li>
-        <li>
+        <li data-id="fourthOne">
+          <button
+            type="button"
+            aria-label="expand"
+            onClick={() => handleMobileSecMenuOpen('fourthOne')}
+            className={
+              mobileSecMenuOpen.fourthOne
+                ? 'expand fa fa-minus open'
+                : 'expand fa fa-plus'
+            }
+            style={{ paddingBottom: '12px', paddingTop: '12px' }}
+          />
           <a href="shop_grid.html">Home Appliances</a>
-          <ul>
-            <li>
+          <ul
+            style={
+              mobileSecMenuOpen.fourthOne
+                ? { display: 'block' }
+                : { display: 'none' }
+            }
+          >
+            <li data-id="fourthOneOne">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fourthOneOne')}
+                className={
+                  mobileSecMenuOpen.fourthOneOne
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#" className="">
                 Clother
               </a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.fourthOneOne
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">Cocktail</a>
                 </li>
@@ -328,9 +449,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fourthOneTwo">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fourthOneTwo')}
+                className={
+                  mobileSecMenuOpen.fourthOneTwo
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Lightings</a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.fourthOneTwo
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">Accessories</a>
                 </li>
@@ -345,9 +483,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fourthOneThree">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fourthOneThree')}
+                className={
+                  mobileSecMenuOpen.fourthOneThree
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Trends</a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.fourthOneThree
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">Flat Shoes</a>
                 </li>
@@ -362,9 +517,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fourthOneFour">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fourthOneFour')}
+                className={
+                  mobileSecMenuOpen.fourthOneFour
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Dress and skirt</a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.fourthOneFour
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">Bracelets</a>
                 </li>
@@ -379,9 +551,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fourthOneFive">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fourthOneFive')}
+                className={
+                  mobileSecMenuOpen.fourthOneFive
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Shoes</a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.fourthOneFive
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">Casual Dresses</a>
                 </li>
@@ -396,9 +585,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fourthOneSix">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fourthOneSix')}
+                className={
+                  mobileSecMenuOpen.fourthOneSix
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Nightstands</a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.fourthOneSix
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">Swimsuits</a>
                 </li>
@@ -415,14 +621,49 @@ const MobileMenu = () => {
             </li>
           </ul>
         </li>
-        <li>
+        <li data-id="fifthOne">
+          <button
+            type="button"
+            aria-label="expand"
+            onClick={() => handleMobileSecMenuOpen('fifthOne')}
+            className={
+              mobileSecMenuOpen.fifthOne
+                ? 'expand fa fa-minus open'
+                : 'expand fa fa-plus'
+            }
+            style={{ paddingBottom: '12px', paddingTop: '12px' }}
+          />
           <a href="shop_grid.html">Living Rooms</a>
-          <ul>
-            <li>
+          <ul
+            style={
+              mobileSecMenuOpen.fifthOne
+                ? { display: 'block' }
+                : { display: 'none' }
+            }
+          >
+            <li data-id="fifthOneOne">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fifthOneOne')}
+                className={
+                  mobileSecMenuOpen.fifthOneOne
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#" className="">
                 Sofas
               </a>
-              <ul className="level1">
+              <ul
+                className="level1"
+                style={
+                  mobileSecMenuOpen.fifthOneOne
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li className="level2">
                   <a href="shop_grid.html">Coats &amp; Jackets</a>
                 </li>
@@ -437,9 +678,27 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fifthOneTwo">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fifthOneTwo')}
+                className={
+                  mobileSecMenuOpen.fifthOneTwo
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Folding Chairs</a>
-              <ul className="level1">
+              <ul
+                className="level1"
+                style={
+                  mobileSecMenuOpen.fifthOneTwo
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li className="level2">
                   <a href="shop_grid.html">Casual Dresses</a>
                 </li>
@@ -454,11 +713,29 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fifthOneThree">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fifthOneThree')}
+                className={
+                  mobileSecMenuOpen.fifthOneThree
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#" className="">
                 Side Tables
               </a>
-              <ul className="level1">
+              <ul
+                className="level1"
+                style={
+                  mobileSecMenuOpen.fifthOneThree
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li className="level2">
                   <a href="shop_grid.html">Sport Shoes</a>
                 </li>
@@ -473,9 +750,27 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fifthOneFour">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fifthOneFour')}
+                className={
+                  mobileSecMenuOpen.fifthOneFour
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Designer</a>
-              <ul className="level1">
+              <ul
+                className="level1"
+                style={
+                  mobileSecMenuOpen.fifthOneFour
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li className="level2">
                   <a href="shop_grid.html">Coats</a>
                 </li>
@@ -488,9 +783,27 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="fifthOneFive">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('fifthOneFive')}
+                className={
+                  mobileSecMenuOpen.fifthOneFive
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="#">Accesories</a>
-              <ul className="level1">
+              <ul
+                className="level1"
+                style={
+                  mobileSecMenuOpen.fifthOneFive
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li className="level2">
                   <a href="shop_grid.html">Backpacks</a>
                 </li>
@@ -507,12 +820,46 @@ const MobileMenu = () => {
             </li>
           </ul>
         </li>
-        <li>
+        <li data-id="sixOne">
+          <button
+            type="button"
+            aria-label="expand"
+            onClick={() => handleMobileSecMenuOpen('sixOne')}
+            className={
+              mobileSecMenuOpen.sixOne
+                ? 'expand fa fa-minus open'
+                : 'expand fa fa-plus'
+            }
+            style={{ paddingBottom: '12px', paddingTop: '12px' }}
+          />
           <a href="shop_grid.html">Electronics</a>
-          <ul>
-            <li>
+          <ul
+            style={
+              mobileSecMenuOpen.sixOne
+                ? { display: 'block' }
+                : { display: 'none' }
+            }
+          >
+            <li data-id="sixOneOne">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('sixOneOne')}
+                className={
+                  mobileSecMenuOpen.sixOneOne
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="shop_grid.html">Wall Units</a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.sixOneOne
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">iPhone</a>
                 </li>
@@ -527,11 +874,28 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="sixOneTwo">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('sixOneTwo')}
+                className={
+                  mobileSecMenuOpen.sixOneTwo
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="shop_grid.html" className="">
                 Kids
               </a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.sixOneTwo
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">Audio</a>
                 </li>
@@ -546,9 +910,26 @@ const MobileMenu = () => {
                 </li>
               </ul>
             </li>
-            <li>
+            <li data-id="sixOneThree">
+              <button
+                type="button"
+                aria-label="expand"
+                onClick={() => handleMobileSecMenuOpen('sixOneThree')}
+                className={
+                  mobileSecMenuOpen.sixOneThree
+                    ? 'expand fa fa-minus open'
+                    : 'expand fa fa-plus'
+                }
+                style={{ paddingBottom: '12px', paddingTop: '12px' }}
+              />
               <a href="shop_grid.html">Fashion</a>
-              <ul>
+              <ul
+                style={
+                  mobileSecMenuOpen.sixOneThree
+                    ? { display: 'block' }
+                    : { display: 'none' }
+                }
+              >
                 <li>
                   <a href="shop_grid.html">Home &amp; Office</a>
                 </li>
